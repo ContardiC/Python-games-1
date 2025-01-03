@@ -1,7 +1,7 @@
 import random
 
 word_list = ["pear", "apple", "banana", "mango"]
-
+lives = 6
 chosen_word = random.choice(word_list)
 
 print(chosen_word)
@@ -26,7 +26,13 @@ while not game_over:
         else:
             display += "_"
 
+
     print(display)
+    if guess not in chosen_word:
+        lives -= 1
+        if lives == 0:
+            game_over = True
+            print("You lose.")
     if "_" not in display:
         game_over = True
         print("You Win!")
