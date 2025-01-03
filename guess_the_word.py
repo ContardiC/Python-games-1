@@ -1,8 +1,32 @@
-word = "casa"
-word_length = len(word)
+import random
 
-def print_underscore(word):
-    for character in word:
-        print("_", end="")
-print(f"The word {word} is {word_length} characters long  ")
-print_underscore(word)
+word_list = ["pear", "apple", "banana", "mango"]
+
+chosen_word = random.choice(word_list)
+
+print(chosen_word)
+
+placeholder = ""
+word_length = len(chosen_word)
+for position in range(word_length):
+    placeholder += "_"
+
+print(placeholder)
+game_over = False
+correct_letters = []
+while not game_over:
+    guess = input("Guess a letter: ").lower()
+    display = ""
+    for letter in chosen_word:
+        if letter == guess:
+            display += letter
+            correct_letters.append(letter)
+        elif letter in correct_letters:
+                display += letter
+        else:
+            display += "_"
+
+    print(display)
+    if "_" not in display:
+        game_over = True
+        print("You Win!")

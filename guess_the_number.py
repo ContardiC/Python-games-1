@@ -6,6 +6,7 @@ random_number = random.randint(MIN,MAX)
 find = False
 
 attempts = 0
+max_attempts = 0
 difficulty_level = int(input("Choose the difficulty level: 1- Easy 2-Medium 3-Hard\n"))
 if difficulty_level == 1:
       max_attempts = 8
